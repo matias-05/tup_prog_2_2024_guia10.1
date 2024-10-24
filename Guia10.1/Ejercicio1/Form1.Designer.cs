@@ -54,6 +54,7 @@
             this.lbEmpleados.Name = "lbEmpleados";
             this.lbEmpleados.Size = new System.Drawing.Size(191, 264);
             this.lbEmpleados.TabIndex = 0;
+            this.lbEmpleados.SelectedIndexChanged += new System.EventHandler(this.lbEmpleados_SelectedIndexChanged);
             // 
             // btVer
             // 
@@ -93,6 +94,7 @@
             this.btGenerar.TabIndex = 4;
             this.btGenerar.Text = "(4) Generar Recibos";
             this.btGenerar.UseVisualStyleBackColor = true;
+            this.btGenerar.Click += new System.EventHandler(this.btGenerar_Click);
             // 
             // Form1
             // 

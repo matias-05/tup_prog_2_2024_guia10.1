@@ -19,10 +19,15 @@ namespace Ejercicio1
         public Form1()
         {
             InitializeComponent();
+            Empleado nuevo = new Jornalero(1, "a", 23, 15, 12);
+            empleados.Add(nuevo);
         }
         List<Empleado> empleados = new List<Empleado>();
+        
+        
         private void btImportar_Click(object sender, EventArgs e)
         {
+            
             OpenFileDialog o = new OpenFileDialog();
             o.Title = "Importación de empleados";
             o.Filter = "Fichero csv|*csv";
@@ -148,6 +153,27 @@ namespace Ejercicio1
                     if (fs != null) fs.Close();
                 }
             }
+        }
+
+        private void btGenerar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Empleado empl = lbEmpleados.SelectedItem as Empleado;
+
+            FormVer fVer = new FormVer();
+
+            if (empl != null)
+            {
+                foreach (string linea in empl.GenrarRecibo())
+                {
+                    fVer.tbVer.Text += linea + Environment.NewLine;
+                }
+            }
+            fVer.ShowDialog();
         }
     }
 }
